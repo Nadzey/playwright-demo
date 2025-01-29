@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Playwright
+        run: npx playwright install
+
       - name: Create directories
         run: mkdir -p reports screenshots
 
@@ -51,6 +54,7 @@ jobs:
         with:
           name: cucumber-report
           path: reports/cucumber-report.json
+          overwrite: true
 
       - name: Upload Screenshots
         uses: actions/upload-artifact@v4
@@ -58,3 +62,4 @@ jobs:
         with:
           name: test-screenshots
           path: ./screenshots
+          overwrite: true
