@@ -34,15 +34,15 @@ git clone https://github.com/Nadzey/playwright-demo.git
 cd playwright-demo
 ```
 
-### 2️⃣ Initialize the Project (If Needed)
+### 2️⃣ Install Dependencies
 ```bash
-npm init -y
+npm install
 ```
 Or:
 ```bash
-yarn init -y
+yarn install
 ```
-This creates a basic **`package.json`**.
+This creates **`node_modules`** and **`package-loc.json`**.
 
 ### 4️⃣ Install dotenv for Environment Variables
 To keep credentials secure, install `dotenv`:
@@ -68,6 +68,7 @@ Below is an example layout of files/folders:
 gherkin-playwright-demo/
 ├── features
 │   └── tasks.feature        # Gherkin .feature file(s)
+|   └── taskVerification.feature # Gherkin .feature file(s) automaticly created
 ├── steps
 │   ├── hooks.js             # Cucumber Hooks (Before/After) to launch/close Playwright
 │   └── tasks.steps.js       # Step definitions referencing the Page
