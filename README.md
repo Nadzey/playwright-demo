@@ -28,7 +28,140 @@ Together, these tools provide a **clean**, **data-driven** approach to verifying
 
 ## 💾 Installation & Setup
 
-### 1️⃣ Clone the Repository
+### 1️⃣ Prerequisites
+
+Before setting up the project, ensure the following software is installed on your system:
+
+- **Node.js**: Required for managing project dependencies and running scripts.
+
+  **Installation:**
+
+  - **macOS & Linux:**
+
+    Using Node Version Manager (nvm):
+
+    - **Install nvm:**
+
+      Open your terminal and run:
+
+      ```bash
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+      ```
+
+      After installation, restart your terminal or run `source ~/.bashrc` (or `source ~/.zshrc` if you're using Zsh) to load nvm.
+
+    - **Install Node.js:**
+
+      Once nvm is installed, you can install the latest LTS (Long Term Support) version of Node.js:
+
+      ```bash
+      nvm install --lts
+      ```
+
+      This command installs the latest LTS version of Node.js and sets it as the default version.
+
+  - **Windows:**
+
+    Using the Official Installer:
+
+    - **Download the Installer:**
+
+      Visit the [Node.js download page](https://nodejs.org/) and download the Windows installer.
+
+    - **Run the Installer:**
+
+      Follow the prompts in the installer, which will install both Node.js and npm.
+
+    - **Verify the Installation:**
+
+      After installation, open the Command Prompt and run:
+
+      ```bash
+      node -v
+      npm -v
+      ```
+
+      These commands should display the installed versions of Node.js and npm, respectively.
+
+- **Java Development Kit (JDK) 8 or later**: Necessary for generating Allure reports.
+
+  **Installation:**
+
+  - **macOS:**
+
+    Using Homebrew:
+
+    - **Install Homebrew (if not already installed):**
+
+      Open your terminal and run:
+
+      ```bash
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      ```
+
+    - **Install OpenJDK:**
+
+      Once Homebrew is installed, run:
+
+      ```bash
+      brew install openjdk
+      ```
+
+    - **Set Up the Environment Variables:**
+
+      After installation, you need to set up the environment variables. Add the following lines to your shell profile (`~/.bashrc`, `~/.zshrc`, etc.):
+
+      ```bash
+      export PATH="/usr/local/opt/openjdk/bin:$PATH"
+      export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+      ```
+
+      Then, reload your shell profile:
+
+      ```bash
+      source ~/.zshrc  # or source ~/.bashrc
+      ```
+
+  - **Windows:**
+
+    Using the Official Oracle JDK Installer:
+
+    - **Download the Installer:**
+
+      Visit the [Oracle JDK download page](https://www.oracle.com/java/technologies/downloads/) and download the Windows installer for the latest JDK.
+
+    - **Run the Installer:**
+
+      Follow the prompts to install the JDK.
+
+    - **Set Up the Environment Variables:**
+
+      After installation, set the `JAVA_HOME` environment variable:
+
+      - Open the Start Menu and search for "Environment Variables".
+      - Click on "Edit the system environment variables".
+      - In the System Properties window, click on the "Environment Variables" button.
+      - In the Environment Variables window, click "New" under System variables.
+      - Set the Variable name to `JAVA_HOME` and the Variable value to the path of your JDK installation (e.g., `C:\Program Files\Java\jdk-17`).
+      - Click OK to save the changes.
+
+    - **Update the PATH Variable:**
+
+      - Still in the Environment Variables window, find the `Path` variable under System variables, select it, and click "Edit".
+      - Click "New" and add `%JAVA_HOME%\bin`.
+      - Click OK to save the changes.
+
+    - **Verify the Installation:**
+
+      Open a new Command Prompt window and run:
+
+      ```bash
+      java -version
+      ```
+
+      This command should display the installed version of Java.
+
+### 2️⃣ Clone the Repository
 ```bash
 git clone https://github.com/Nadzey/playwright-demo.git
 cd playwright-demo
